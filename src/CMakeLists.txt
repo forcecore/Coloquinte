@@ -1,5 +1,8 @@
 # -*- explicit-buffer-name: "CMakeLists.txt<Coloquinte/src>" -*-
 
+# Point to where lemon is installed !!!
+include_directories($ENV{HOME}/usr/lib/lemon/include)
+
 set ( includes          coloquinte/circuit.hxx
                         coloquinte/circuit_helper.hxx
                         coloquinte/common.hxx
@@ -30,6 +33,7 @@ set ( coloquintecpps    main.cxx )
 add_library ( coloquinte        ${cpps} )
 add_executable ( coloquinte.bin    ${coloquintecpps})
 target_link_libraries ( coloquinte.bin    coloquinte )
+set_property(TARGET coloquinte PROPERTY CXX_STANDARD 11)
 
 install( TARGETS coloquinte  DESTINATION lib${LIB_SUFFIX} )
 install( FILES ${includes}   DESTINATION include/coloquinte ) 

@@ -1,0 +1,13 @@
+# Prerequisites
+
+## LEMON
+* https://lemon.cs.elte.hu/trac/lemon
+* Get lemon. Build it by reading its INSTALL documents.
+* In my case, I did (not system-wide install.)
+    * mkdir build  # make build directory for cmake to work
+    * cd build  # get inside it
+    * cmake -DCMAKE_INSTALL_PREFIX=$HOME/usr/lib/lemon ..
+        * Let cmake do its configuration for lemon.
+        * But install prefix is specified as above command.
+    * make  # compile LEMON
+    * make install  # install LEMON.

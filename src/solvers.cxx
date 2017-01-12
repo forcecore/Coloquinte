@@ -1,6 +1,7 @@
 
 #include "coloquinte/solvers.hxx"
 
+#include <cmath>
 #include <cassert>
 #include <stdexcept>
 
