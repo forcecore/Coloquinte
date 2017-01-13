@@ -3,6 +3,7 @@
 #include <stdexcept>
 
 namespace coloquinte{
+    static const index_t null_ind = std::numeric_limits<index_t>::max();
 
 std::vector<capacity_t>  transport_1D(std::vector<t1D_elt> sources, std::vector<t1D_elt> sinks){
     /* Description of the algorithm:
@@ -129,10 +130,14 @@ std::vector<capacity_t>  transport_1D(std::vector<t1D_elt> sources, std::vector<
     return constraining_pos;
 }
 
-namespace{ // Anonymous namespace to hide the transportation structures
+namespace { // Anonymous namespace to hide the transportation structures
 
 class current_allocation{
-    static const index_t null_ind = std::numeric_limits<index_t>::max();
+    // I get
+    // optimization_subproblems.cxx:(.text+0x1025): undefined reference to `coloquinte::(anonymous namespace)::current_allocation::null_ind'
+    // with GCC.
+    // I'm removing "const"... This didn't work either.
+    //static const index_t null_ind = std::numeric_limits<index_t>::max();
 
     // Internal data structures
 
